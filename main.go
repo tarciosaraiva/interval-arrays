@@ -11,7 +11,7 @@ import (
 	"strings"
 )
 
-var r, _ = regexp.Compile(`(\d\s?-\s?\d,?\s?)+`)
+var r, _ = regexp.Compile(`^(\d+\s?-\s?\d+\s?,?\s?)+$`)
 
 // parseIntervalInput takes an input string and parse it to match
 // the regex specified by r - throws an error if string does not conform
