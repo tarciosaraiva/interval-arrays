@@ -18,6 +18,7 @@ func Test_parseIntervalString(t *testing.T) {
 		{"parse valid input", args{input: "1-5,3-7"}, [][]int{{1, 5}, {3, 7}}},
 		{"parse valid input with space between ranges", args{input: "2-5, 4-8 , 10-15"}, [][]int{{2, 5}, {4, 8}, {10, 15}}},
 		{"parse valid input with space between range items", args{input: "3 - 5,7 -9, 8- 12"}, [][]int{{3, 5}, {7, 9}, {8, 12}}},
+		{"parse valid input with large numbers", args{input: "10 - 25,37 -43, 23- 41, 66-191,77-212"}, [][]int{{10, 25}, {37, 43}, {23, 41}, {66, 191}, {77, 212}}},
 		{"throw error on alpha collection", args{input: "a-c,f-7"}, nil},
 		{"throw error on alpha", args{input: "error"}, nil},
 	}
