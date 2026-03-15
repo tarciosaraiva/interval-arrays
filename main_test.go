@@ -33,3 +33,24 @@ func Test_parseIntervalString(t *testing.T) {
 		})
 	}
 }
+
+func Test_mergeIntervals(t *testing.T) {
+	type args struct {
+		input [][]int
+	}
+	tests := []struct {
+		name string
+		args args
+		want [][]int
+	}{
+		{"merge interval", args{input: [][]int{{1, 3}, {2, 4}, {6, 8}, {9, 10}}}, [][]int{{1, 4}, {6, 8}, {9, 10}}},
+		{"merge out of order interval", args{input: [][]int{{7, 8}, {1, 5}, {2, 4}, {4, 6}}}, [][]int{{1, 6}, {7, 8}}},
+		{"merge another out of order interval", args{input: [][]int{{10, 15}, {5, 7}, {6, 9}, {12, 16}, {9, 18}}}, [][]int{{5, 18}}},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			result := mergeIntervals(tt.args.input)
+			assert.Equal(t, tt.want, result)
+		})
+	}
+}
