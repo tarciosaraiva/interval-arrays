@@ -62,7 +62,7 @@ func mergeIntervals(intervals [][]int) [][]int {
 			merged = append(merged, currentInterval)
 		} else if currentInterval[1] > lastMergedInterval[1] {
 			newInterval := []int{lastMergedInterval[0], currentInterval[1]}
-			merged = slices.Replace(merged, 0, 1, newInterval)
+			merged = slices.Replace(merged, mergedLength-1, mergedLength, newInterval)
 		}
 
 		// fmt.Printf("Current interval: %v - Merged: %v\n", currentInterval, merged)
