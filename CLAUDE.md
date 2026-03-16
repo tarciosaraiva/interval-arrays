@@ -30,4 +30,4 @@ The `main` function wires these together via the `-interval` flag.
 
 ## Input format
 
-Intervals are passed as a string: `"1-5, 3-7, 10-15"`. Spaces around `-` and `,` are tolerated. Only single-digit bounds are supported by the current regex.
+Intervals are passed as a string: `"1-5, 3-7, 10-15"`. Spaces around `-` and `,` are tolerated. Multi-digit bounds are supported.
