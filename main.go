@@ -61,11 +61,7 @@ func mergeIntervals(intervals [][]int) [][]int {
 		if currentInterval[0] > lastMergedInterval[1] {
 			merged = append(merged, currentInterval)
 		} else if currentInterval[1] > lastMergedInterval[1] {
-			var newInterval = []int{lastMergedInterval[0], currentInterval[1]}
-
-			if lastMergedInterval[0] < currentInterval[0] {
-				newInterval = []int{lastMergedInterval[0], currentInterval[1]}
-			}
+			newInterval := []int{lastMergedInterval[0], currentInterval[1]}
 			merged = slices.Replace(merged, 0, 1, newInterval)
 		}
 
